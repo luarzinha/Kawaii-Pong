@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://de7d2nqrmwbok"
+path="res://.godot/imported/Mina... GANBATTE NE! [TubeRipper.cc].ogg-d916a7378653e1c12ea6c1f2552735b6.oggvorbisstr"
+
+[deps]
+
+source_file="res://pong_assets/Mina... GANBATTE NE! [TubeRipper.cc].ogg"
+dest_files=["res://.godot/imported/Mina... GANBATTE NE! [TubeRipper.cc].ogg-d916a7378653e1c12ea6c1f2552735b6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=40.0
+beat_count=0
+bar_beats=4

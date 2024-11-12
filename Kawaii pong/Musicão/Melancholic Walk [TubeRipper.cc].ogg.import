@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c4abyuuqeu1rx"
+path="res://.godot/imported/Melancholic Walk [TubeRipper.cc].ogg-bfb0278fdda738686f5f775f7a267dee.oggvorbisstr"
+
+[deps]
+
+source_file="res://Musicão/Melancholic Walk [TubeRipper.cc].ogg"
+dest_files=["res://.godot/imported/Melancholic Walk [TubeRipper.cc].ogg-bfb0278fdda738686f5f775f7a267dee.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

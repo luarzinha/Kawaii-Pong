@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2psh131rbwqt"]
+
+[ext_resource type="Texture2D" uid="uid://gblpy6lsgurk" path="res://imagem de fundo/pxfuel.jpg" id="1_ie5le"]
+[ext_resource type="Script" path="res://Levels/gamer_over.gd" id="1_jbk4a"]
+[ext_resource type="FontFile" uid="uid://blilq25sl2vjn" path="res://pong_assets/BILLO___.TTF" id="2_yhrug"]
+[ext_resource type="StyleBox" uid="uid://c2r77c6fyqwc1" path="res://Estilos/Estilo_Botão.tres" id="3_vy2kf"]
+[ext_resource type="StyleBox" uid="uid://dony7m2dafwix" path="res://Estilos/Estilo_botão_normal.tres" id="4_216mc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ey11k"]
+font = ExtResource("2_yhrug")
+font_size = 77
+
+[sub_resource type="LabelSettings" id="LabelSettings_al0dp"]
+font = ExtResource("2_yhrug")
+font_size = 40
+
+[node name="Gamer over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jbk4a")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_ie5le")
+expand_mode = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -249.5
+offset_right = 249.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator" type="VSeparator" parent="TextureRect/VBoxContainer2"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+text = "Gamer Over :c"
+label_settings = SubResource("LabelSettings_ey11k")
+
+[node name="Label2" type="Label" parent="TextureRect/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_al0dp")
+horizontal_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="TextureRect/VBoxContainer2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TextureRect/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="TextureRect/VBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_yhrug")
+theme_override_font_sizes/font_size = 49
+theme_override_styles/hover = ExtResource("3_vy2kf")
+theme_override_styles/normal = ExtResource("4_216mc")
+text = "Main Menu"
+
+[node name="VSeparator2" type="VSeparator" parent="TextureRect/VBoxContainer2"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="TextureRect/VBoxContainer2/VBoxContainer2/Button" to="." method="_on_button_pressed"]

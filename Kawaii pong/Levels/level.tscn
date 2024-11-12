@@ -1,0 +1,225 @@
+[gd_scene load_steps=18 format=3 uid="uid://cyte5asdyu17t"]
+
+[ext_resource type="PackedScene" uid="uid://corqlsxh0yv4l" path="res://Paddles/player_paddle.tscn" id="1_8or8n"]
+[ext_resource type="Script" path="res://Levels/level.gd" id="1_pr5gp"]
+[ext_resource type="PackedScene" uid="uid://d2qsptolt02ij" path="res://Paddles/oponente.tscn" id="2_7ay3w"]
+[ext_resource type="PackedScene" uid="uid://bo2fted3s5bwq" path="res://Ball/bola.tscn" id="3_vrqj5"]
+[ext_resource type="AudioStream" uid="uid://tpntdpam14pt" path="res://pong_assets/A-fairy-dust-1.ogg" id="6_lnuw6"]
+[ext_resource type="StyleBox" uid="uid://c2r77c6fyqwc1" path="res://Estilos/Estilo_Botão.tres" id="7_tqcp1"]
+[ext_resource type="FontFile" uid="uid://blilq25sl2vjn" path="res://pong_assets/BILLO___.TTF" id="8_5h7bl"]
+[ext_resource type="StyleBox" uid="uid://dony7m2dafwix" path="res://Estilos/Estilo_botão_normal.tres" id="8_qch1s"]
+[ext_resource type="AudioStream" uid="uid://de7d2nqrmwbok" path="res://pong_assets/Mina... GANBATTE NE! [TubeRipper.cc].ogg" id="9_26gr7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q10gy"]
+font = ExtResource("8_5h7bl")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_berve"]
+font = ExtResource("8_5h7bl")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_lruhy"]
+line_spacing = 2.975
+font = ExtResource("8_5h7bl")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_11gma"]
+font = ExtResource("8_5h7bl")
+font_size = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nya3p"]
+size = Vector2(1202, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qy66j"]
+size = Vector2(70, 642)
+
+[sub_resource type="Gradient" id="Gradient_hiyks"]
+colors = PackedColorArray(0.313726, 0.027451, 0.356863, 0.294118, 0.313726, 0.027451, 0.356863, 0.294118)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kwfto"]
+gradient = SubResource("Gradient_hiyks")
+fill_from = Vector2(0, 0.449541)
+
+[node name="Level" type="Node"]
+process_mode = 1
+script = ExtResource("1_pr5gp")
+
+[node name="fundo" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.790486, 0.672555, 0.863322, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PONTO MEU" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_q10gy")
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 150
+
+[node name="PONTO DELE" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_berve")
+
+[node name="Countdown label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -137.0
+offset_right = 137.0
+offset_bottom = 68.0
+grow_horizontal = 2
+text = "Countdown"
+label_settings = SubResource("LabelSettings_lruhy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Temporizador" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -159.0
+offset_top = 55.0
+offset_right = 159.0
+offset_bottom = 123.0
+grow_horizontal = 2
+text = "Temporizador"
+label_settings = SubResource("LabelSettings_lruhy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerName" type="Label" parent="."]
+offset_right = 223.0
+offset_bottom = 55.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+text = "Player Name"
+label_settings = SubResource("LabelSettings_11gma")
+
+[node name="PlayerName2" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -238.0
+offset_bottom = 55.0
+grow_horizontal = 0
+size_flags_horizontal = 10
+size_flags_vertical = 2
+text = "Player Name"
+label_settings = SubResource("LabelSettings_11gma")
+
+[node name="PlayerPaddle" parent="." instance=ExtResource("1_8or8n")]
+position = Vector2(24, 309)
+
+[node name="WallTop" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallTop"]
+position = Vector2(567, -10)
+shape = SubResource("RectangleShape2D_nya3p")
+
+[node name="WallTop2" type="StaticBody2D" parent="."]
+position = Vector2(16, 670)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallTop2"]
+position = Vector2(567, -10)
+shape = SubResource("RectangleShape2D_nya3p")
+
+[node name="PlayerPaddle2" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("2_7ay3w")]
+position = Vector2(1134, 313)
+ball = NodePath("../Ball")
+
+[node name="Ball" parent="." instance=ExtResource("3_vrqj5")]
+position = Vector2(577, 313)
+
+[node name="WallLeft" type="Area2D" parent="."]
+position = Vector2(-2, -4)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
+position = Vector2(-37, 329)
+shape = SubResource("RectangleShape2D_qy66j")
+
+[node name="WallRight" type="Area2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight"]
+position = Vector2(1189, 323.625)
+shape = SubResource("RectangleShape2D_qy66j")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 122.0
+
+[node name="CountdownTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="ScoreSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lnuw6")
+volume_db = -20.0
+
+[node name="fundo_pause" type="TextureRect" parent="."]
+process_mode = 2
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = SubResource("GradientTexture2D_kwfto")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="fundo_pause"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -137.0
+offset_top = 314.0
+offset_right = 137.0
+offset_bottom = -314.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="botão_continue" type="Button" parent="fundo_pause/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_5h7bl")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("7_tqcp1")
+theme_override_styles/normal = ExtResource("8_qch1s")
+text = "CONTINUAR"
+
+[node name="botão_main_menu" type="Button" parent="fundo_pause/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_5h7bl")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("7_tqcp1")
+theme_override_styles/normal = ExtResource("8_qch1s")
+text = "MENU"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_26gr7")
+volume_db = -30.0
+
+[connection signal="body_entered" from="WallLeft" to="." method="_on_wall_left_body_entered"]
+[connection signal="body_entered" from="WallRight" to="." method="_on_wall_right_body_entered"]
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
+[connection signal="pressed" from="fundo_pause/VBoxContainer/botão_continue" to="." method="_on_botão_continue_pressed"]
+[connection signal="pressed" from="fundo_pause/VBoxContainer/botão_main_menu" to="." method="_on_botão_main_menu_pressed"]

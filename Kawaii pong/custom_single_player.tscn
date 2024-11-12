@@ -1,0 +1,239 @@
+[gd_scene load_steps=13 format=3 uid="uid://v5seh8rktnvl"]
+
+[ext_resource type="Script" path="res://custom_single_player.gd" id="1_aqpnf"]
+[ext_resource type="Texture2D" uid="uid://gblpy6lsgurk" path="res://imagem de fundo/pxfuel.jpg" id="1_r1ftw"]
+[ext_resource type="Script" path="res://menu.gd" id="2_m8y0m"]
+[ext_resource type="StyleBox" uid="uid://c2r77c6fyqwc1" path="res://Estilos/Estilo_Botão.tres" id="3_chb0f"]
+[ext_resource type="FontFile" uid="uid://blilq25sl2vjn" path="res://pong_assets/BILLO___.TTF" id="3_tma5x"]
+[ext_resource type="StyleBox" uid="uid://dony7m2dafwix" path="res://Estilos/Estilo_botão_normal.tres" id="4_d4nqd"]
+[ext_resource type="StyleBox" uid="uid://dn1qkw60cticm" path="res://Estilos/Estilo_Branco.tres" id="5_3y3pe"]
+[ext_resource type="Script" path="res://Paleta_Singleplayer.gd" id="5_bwqs2"]
+[ext_resource type="StyleBox" uid="uid://cumm6daixgpwx" path="res://Estilos/botão_pressionado.tres" id="9_kvmyy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3ny1"]
+bg_color = Color(0.462745, 0.0627451, 0.521569, 0.407843)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_dlpte"]
+font = ExtResource("3_tma5x")
+font_size = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smxl8"]
+bg_color = Color(0.462745, 0.0627451, 0.521569, 0.407843)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="Custom SinglePlayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aqpnf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_r1ftw")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 528.0
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_tma5x")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("4_d4nqd")
+placeholder_text = "Nome player 1"
+alignment = 1
+max_length = 24
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+script = ExtResource("5_bwqs2")
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer"]
+modulate = Color(0.762361, 0.607661, 0.796641, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("5_3y3pe")
+
+[node name="Button2" type="Button" parent="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer"]
+modulate = Color(0.683765, 0.655506, 0.875916, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("5_3y3pe")
+
+[node name="Button3" type="Button" parent="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer"]
+modulate = Color(0.443137, 0.490196, 0.717647, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("5_3y3pe")
+
+[node name="Button4" type="Button" parent="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer"]
+modulate = Color(0.915763, 0.903775, 0.702206, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("5_3y3pe")
+
+[node name="Button5" type="Button" parent="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer"]
+modulate = Color(0.619396, 0.797539, 0.923454, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("5_3y3pe")
+
+[node name="Button6" type="Button" parent="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer"]
+modulate = Color(0.741153, 1, 0.80604, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("5_3y3pe")
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer" type="BoxContainer" parent="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/BoxContainer"]
+custom_minimum_size = Vector2(35, 180)
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.852
+anchor_top = 0.588
+anchor_right = 0.852
+anchor_bottom = 0.588
+offset_left = -322.504
+offset_top = -379.024
+offset_right = 167.496
+offset_bottom = 266.976
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Menu" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+script = ExtResource("2_m8y0m")
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_tma5x")
+theme_override_styles/normal = ExtResource("4_d4nqd")
+placeholder_text = "Inserir máximo de Pontos."
+alignment = 1
+
+[node name="Dificuldade" type="Button" parent="VBoxContainer/Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_tma5x")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = ExtResource("3_chb0f")
+theme_override_styles/pressed = ExtResource("9_kvmyy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r3ny1")
+text = "Dificuldade"
+
+[node name="ModoDeJogo" type="Button" parent="VBoxContainer/Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_tma5x")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = ExtResource("3_chb0f")
+theme_override_styles/pressed = ExtResource("9_kvmyy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r3ny1")
+text = "Modo de jogo"
+
+[node name="Label" type="Label" parent="VBoxContainer/Menu"]
+layout_mode = 2
+text = "Normal"
+label_settings = SubResource("LabelSettings_dlpte")
+horizontal_alignment = 1
+
+[node name="Menu" type="Button" parent="VBoxContainer/Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_tma5x")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = ExtResource("3_chb0f")
+theme_override_styles/pressed_mirrored = ExtResource("9_kvmyy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_smxl8")
+text = "Menu"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer/Button" to="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer" method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer/Button2" to="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer" method="_on_button_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer/Button3" to="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer" method="_on_button_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer/Button4" to="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer" method="_on_button_4_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer/Button5" to="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer" method="_on_button_5_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer/Button6" to="HBoxContainer/VBoxContainer2/VBoxContainer/HBoxContainer/GridContainer" method="_on_button_6_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu/Dificuldade" to="." method="_on_dificuldade_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu/ModoDeJogo" to="." method="_on_modo_de_jogo_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu/Menu" to="VBoxContainer/Menu" method="_on_menu_pressed"]

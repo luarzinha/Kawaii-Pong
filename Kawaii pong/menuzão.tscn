@@ -1,0 +1,139 @@
+[gd_scene load_steps=13 format=3 uid="uid://c7ajynce51hx0"]
+
+[ext_resource type="Script" path="res://menuzão.gd" id="1_3kyar"]
+[ext_resource type="Texture2D" uid="uid://d2uiomwa6c1sl" path="res://pong_assets/fundo pong.png" id="1_imoc7"]
+[ext_resource type="FontFile" uid="uid://blilq25sl2vjn" path="res://pong_assets/BILLO___.TTF" id="2_cayw8"]
+[ext_resource type="StyleBox" uid="uid://c2r77c6fyqwc1" path="res://Estilos/Estilo_Botão.tres" id="4_by5mm"]
+[ext_resource type="StyleBox" uid="uid://dony7m2dafwix" path="res://Estilos/Estilo_botão_normal.tres" id="5_71a6n"]
+[ext_resource type="StyleBox" uid="uid://cumm6daixgpwx" path="res://Estilos/botão_pressionado.tres" id="5_wtsnb"]
+
+[sub_resource type="Theme" id="Theme_hxjn4"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_216nn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymv1e"]
+bg_color = Color(0.313726, 0.027451, 0.356863, 0.407843)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_devri"]
+bg_color = Color(0.462745, 0.0627451, 0.521569, 0.407843)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihuv8"]
+bg_color = Color(0.313726, 0.027451, 0.356863, 0.407843)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5qqb"]
+bg_color = Color(0.462745, 0.0627451, 0.521569, 0.407843)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="Menuzão" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3kyar")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = -4.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+texture = ExtResource("1_imoc7")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -321.0
+offset_right = 233.0
+offset_bottom = 326.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_cayw8")
+theme_override_font_sizes/font_size = 87
+text = "Kawaii Pong"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(400, 350)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -384.0
+offset_right = 200.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 26
+
+[node name="Singleplayer" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_hxjn4")
+theme_override_fonts/font = ExtResource("2_cayw8")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/hover = ExtResource("4_by5mm")
+theme_override_styles/pressed = ExtResource("5_wtsnb")
+theme_override_styles/normal = ExtResource("5_71a6n")
+text = "SinglePlayer"
+icon = SubResource("MeshTexture_216nn")
+text_direction = 3
+
+[node name="Multplayer" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cayw8")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/hover = SubResource("StyleBoxFlat_ymv1e")
+theme_override_styles/pressed = ExtResource("5_wtsnb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_devri")
+text = "MultiPlayer"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cayw8")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/hover = SubResource("StyleBoxFlat_ihuv8")
+theme_override_styles/pressed = ExtResource("5_wtsnb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_o5qqb")
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Singleplayer" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Multplayer" to="." method="_on_multplayer_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

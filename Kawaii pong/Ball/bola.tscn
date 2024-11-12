@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo2fted3s5bwq"]
+
+[ext_resource type="Script" path="res://Ball/bola.gd" id="1_0eap5"]
+[ext_resource type="Texture2D" uid="uid://vaef8777vnxk" path="res://pong_assets/2arB682Ks3lRBR899IsB4aSZbNv-desktop-removebg-preview.png" id="2_8kpy4"]
+[ext_resource type="AudioStream" uid="uid://cf1suu1rra8ee" path="res://pong_assets/A-short-bounce.ogg" id="3_k3ogj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17lrc"]
+radius = 16.0312
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_0eap5")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_17lrc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.084, 0.08)
+texture = ExtResource("2_8kpy4")
+
+[node name="CollisionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k3ogj")
+volume_db = -40.0

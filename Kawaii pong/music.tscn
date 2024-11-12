@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://58rctb3y7sal"]
+
+[ext_resource type="Script" path="res://music.gd" id="1_md38v"]
+[ext_resource type="AudioStream" uid="uid://yngpp0vfwlxj" path="res://pong_assets/A-cant-click-here.ogg" id="3_nbfid"]
+
+[sub_resource type="Gradient" id="Gradient_5lhr8"]
+offsets = PackedFloat32Array(0, 0.506494, 0.980519, 0.987013)
+colors = PackedColorArray(0, 0, 0, 1, 0.476284, 0.0059022, 0.227594, 1, 0, 0, 0, 1, 0.155844, 0.155844, 0.155844, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_alpww"]
+gradient = SubResource("Gradient_5lhr8")
+
+[node name="music" type="Node"]
+script = ExtResource("1_md38v")
+
+[node name="audio_ya" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nbfid")
+volume_db = -20.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_alpww")
